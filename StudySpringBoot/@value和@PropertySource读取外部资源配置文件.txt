@@ -1,0 +1,7 @@
+http://blog.csdn.net/u010832551/article/details/73826914  用@value读取外部的配置文件
+
+
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/PropertySource.html
+
+
+

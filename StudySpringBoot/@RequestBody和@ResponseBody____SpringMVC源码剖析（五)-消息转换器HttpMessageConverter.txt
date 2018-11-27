@@ -1,0 +1,3 @@
+SpringMVC源码剖析（五)-消息转换器HttpMessageConverter   https://my.oschina.net/lichhao/blog/172562
+
+

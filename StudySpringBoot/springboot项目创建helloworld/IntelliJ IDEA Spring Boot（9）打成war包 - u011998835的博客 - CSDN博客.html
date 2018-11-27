@@ -1,0 +1,1243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://blog.csdn.net/u011998835/article/details/78389740 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">          
+            <link rel="canonical" href="http://blog.csdn.net/u011998835/article/details/78389740"> 
+
+ <meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" media="handheld" href="http://blog.csdn.net/u011998835/article/details/78389740#">
+
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+       
+    <title>IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客</title>
+    
+    <meta name="description" content="上一篇文章 讲了如何打成jar包 发布运行，当然我还是想实际运行一下 war包的打包过程。">
+
+    <meta name="keywords" content="IntelliJ IDEA,Spring Boot,war">
+    <script type="text/javascript" async="" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/pr.js"></script><script src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/hm.js"></script><script type="text/javascript" async="" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/tnrvrka.js"></script><script src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/blog_static_head.min.js" type="text/javascript"></script>
+
+
+    <link rel="Stylesheet" type="text/css" href="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/style.css">
+
+    
+
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://blog.csdn.net/u011998835/rss/list">
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/default.css">
+ 
+
+
+
+    <link href="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/csdn_public_blog_detail.min.css" type="text/css" rel="stylesheet">
+     
+         <link rel="stylesheet" href="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/csdn_blog_detail.min.css">
+
+    <!-- 请置于所有广告位代码之前 --> 
+            <script src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ds.js"></script>
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+
+    
+<body><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div><div id="MathJax_Message" style="display: none;"></div><div class="csdn-toolbar csdn-toolbar-skin-black ">        <div class="container row center-block ">          <div class="col-md-3 pull-left logo clearfix"><a href="http://www.csdn.net/?ref=toolbar" title="CSDN首页" target="_blank" class="icon"></a><a title="频道首页" href="http://blog.csdn.net/?ref=toolbar_logo" class="img blog-icon"></a></div>          <div class="pull-right login-wrap unlogin">            <ul class="btns">              <li class="loginlink"><a href="https://passport.csdn.net/account/login?ref=toolbar" target="_top">登录&nbsp;</a>|<a target="_top" href="http://passport.csdn.net/account/mobileregister?ref=toolbar&amp;action=mobileRegister">&nbsp;注册</a></li>              <li class="search">                <div class="icon on-search-icon">                  <div class="wrap">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <form action="http://so.csdn.net/search" id="toolbar_search" method="get" target="_blank">                      <input type="hidden" value="toolbar" name="ref" accesskey="2">                      <div class="border">                        <input placeholder="搜索" type="text" value="" name="q" accesskey="2"><span class="icon-enter-sm"></span>                      </div>                    </form>                  </div>                </div>              </li>              <li class="favor">                <div class="icon on-favor-icon">                  <div class="wrap">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <div style="display:none;" class="favor-success"><span class="msg">收藏成功</span>                      <div class="btns"><span class="btn btn-primary ok">确定</span></div>                    </div>                    <div style="display:none;" class="favor-failed"><span class="icon-danger-lg"></span><span class="msg">收藏失败，请重新收藏</span>                      <div class="btns"><span class="btn btn-primary ok">确定</span></div>                    </div>                    <form role="form" class="form-horizontal favor-form">                      <div class="form-group">                        <div class="clearfix">                          <label for="input-title" class="col-sm-2 control-label"><span class="red_txt">*</span>标题</label>                          <div class="col-sm-10">                            <input id="inputTitle" type="text" placeholder="" class="title form-control">                          </div>                        </div>                        <div class="alert alert-danger"><strong></strong>标题不能为空</div>                      </div>                      <div class="form-group" style="display:none;">                        <label for="input-url" class="col-sm-2 control-label">网址</label>                        <div class="col-sm-10">                          <input id="input-url" type="text" placeholder="" class="url form-control">                        </div>                      </div>                      <div class="form-group">                        <label for="input-tag" class="col-sm-2 tag control-label">标签</label>                        <div class="col-sm-10">                          <input id="input-tag" type="text" class="form-control tag">                        </div>                      </div>                      <div class="form-group">                        <label for="input-description" class="description col-sm-2 control-label">位置</label>                        <div class="col-sm-10">                          <div class="my_lib_box">                            个人主页&nbsp;-&nbsp;<a href="http://my.csdn.net/" target="_blank">我的知识</a>                          </div>                          <div class="checkbox">                            <div class="pull-left">                              <label>                                <input type="checkbox" name="share" class="save_lib_map" checked="checked">同时保存至：                              </label>                            </div>                            <div class="pull-left">                              <div class="dropdown">                                <button id="toolbar_sele_map" type="button">                                  选择知识图谱                                  <i class="fa fa-chevron-down"></i>                                </button>                                <div class="top_arr"></div>                                <div class="outside">                                  <ul class="dropdown-menu" id="toolbar_Design_knowledge"><li>选择知识图谱</li></ul>                                </div>                              </div>                            </div>                            <div class="pull-left new_txt">                              <a href="http://lib.csdn.net/my/create/structure" target="_blank">新建？</a>                            </div>                          </div>                        </div>                      </div>                      <div class="form-group">                        <div class="col-sm-offset-2 col-sm-10 ft">                          <div class="col-sm-4 pull-left" style="display:none">                            <div class="checkbox">                              <label>                                <input type="checkbox" name="share" checked="checked" class="share">公开                              </label>                            </div>                          </div>                          <div class="col-sm-8 pull-right favor-btns">                            <button type="button" class="cancel btn btn-default">取消</button>                            <button type="submit" class="submit btn btn-primary">收藏</button>                          </div>                        </div>                      </div>                    </form>                  </div>                </div>              </li>              <li class="notify">                <div style="display:none" class="number"></div>                <div style="display:none" class="icon-hasnotes-sm"></div>                <div id="header_notice_num"></div>                <div class="icon on-notify-icon">                  <div class="wrap">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <div id="note1" class="csdn_note">                      <div class="box"></div>                    <iframe src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/saved_resource.html" frameborder="0" allowtransparency="true" style="z-index:-1;position:absolute;top:0;left:0;width:100%;height:100%;background:transparent"></iframe></div>                  </div>                </div>              </li>              <li class="ugc">                <div class="icon on-ugc-icon">                  <div class="wrap clearfix">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <dl>                      <dt><a href="http://geek.csdn.net/news/expert?ref=toolbar" target="_blank" class="p-news clearfix" style="display:none;"><em class="icon"></em><span>分享资讯</span></a></dt>                      <dt style="border: none;"><a href="http://u.download.csdn.net/upload?ref=toolbar" target="_blank" class="p-doc clearfix"><em class="icon"></em><span>传PPT/文档</span></a></dt>                      <dt><a href="http://bbs.csdn.net/topics/new?ref=toolbar" target="_blank" class="p-ask clearfix"><em class="icon"></em><span>提问题</span></a></dt>                      <dt><a href="http://write.blog.csdn.net/postedit?ref=toolbar" target="_blank" class="p-blog clearfix"><em class="icon"></em><span>写博客</span></a></dt>                      <dt><a href="http://gitbook.cn/new/gitchat/activity?utm_source=csdnblog1" target="_blank" class="gitchat clearfix"><em class="icon"></em><span>发布Chat</span></a></dt>                      <dt><a href="http://u.download.csdn.net/upload?ref=toolbar" target="_blank" class="p-src clearfix"><em class="icon"></em><span>传资源</span></a></dt>                      <dt><a href="https://code.csdn.net/projects/new?ref=toolbar" target="_blank" class="c-obj clearfix"><em class="icon"></em><span>创建项目</span></a></dt>                      <dt><a href="https://code.csdn.net/snippets/new?ref=toolbar" target="_blank" class="c-code clearfix"><em class="icon"></em><span>创建代码片</span></a></dt>                    </dl>                  </div>                </div>              </li>              <li class="profile">                <div class="icon on-profile-icon"><img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/100x100.jpg" class="curr-icon-img">                  <div class="wrap clearfix">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                    <div class="bd">                      <dl class="clearfix">                        <dt class="pull-left img"><a target="_blank" href="http://my.csdn.net/?ref=toolbar" class="avatar"><img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/100x100.jpg"></a></dt>                        <dd class="info" style="border: none;"><a target="_blank" href="http://my.csdn.net/?ref=toolbar" class="nickname"></a><a class="set-nick" href="https://passport.csdn.net/account/profile">设置昵称<span class="write-icon"></span></a><span class="dec"><a class="fill-dec" href="http://my.csdn.net/" target="_blank">编辑自我介绍，让更多人了解你<span class="write-icon"></span></a></span></dd>                      </dl>                    </div>                    <div class="ft clearfix"><a target="_blank" href="http://my.csdn.net/my/account/changepwd?ref=toolbar" class="pull-left"><span class="icon-cog"></span>帐号设置</a><a href="https://passport.csdn.net/account/logout?ref=toolbar" target="_top" class="pull-left" style="margin-left:132px; width:18px; height:27px; white-space:nowrap; overflow:hidden;"><span class="icon-signout"></span><span class="out">退出</span></a></div>                  </div>                </div>              </li>              <li class="apps">                <div id="chasnew123" class="hasnew" style="display: none;"></div>                <div id="cappsarea123" class="icon on-apps-icon">                  <div class="wrap clearfix">                    <div class="curr-icon-wrap">                      <div class="curr-icon"></div>                    </div>                  <div class="detail">                    <dl>                      <dt>                        <h5>社区</h5>                      </dt>                      <dd> <a href="http://blog.csdn.net/?ref=toolbar" target="_blank">博客</a></dd>                      <dd> <a href="http://bbs.csdn.net/?ref=toolbar" target="_blank">论坛</a></dd>                      <dd> <a href="http://download.csdn.net/?ref=toolbar" target="_blank">下载</a></dd>                      <dd> <a href="http://lib.csdn.net/?ref=toolbar" target="_blank">知识库</a></dd>                      <dd><a href="http://ask.csdn.net/?ref=toolbar" target="_blank">技术问答</a></dd>                      <dd><a href="http://geek.csdn.net/?ref=toolbar" target="_blank">极客头条</a></dd>                      <dd style="display:none"> <a href="http://hero.csdn.net/?ref=toolbar" target="_blank">英雄会</a></dd>                    </dl>                  </div>                  <div class="detail">                    <dl>                      <dt>                        <h5>服务</h5>                      </dt>                      <dd style="display:none"> <a href="http://job.csdn.net/?ref=toolbar" target="_blank">JOB<img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/new.gif" style="display: none; margin-top: -26px; width: 23px;"></a></dd>                      <dd> <a href="http://edu.csdn.net/?ref=toolbar" target="_blank">学院<img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/new.gif" style="display: none; margin-top: -26px; width: 23px;"></a></dd>                      <dd> <a href="https://code.csdn.net/?ref=toolbar" target="_blank">CODE</a></dd>                      <dd> <a href="http://huiyi.csdn.net/?ref=toolbar" target="_blank">活动</a></dd>                      <dd> <a href="http://www.csto.com/?ref=toolbar" target="_blank">CSTO</a></dd>                      <dd> <a href="http://mall.csdn.net/?ref=toolbar" target="_blank">C币兑换<img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/new.gif" style="display: none; margin-top: -26px; width: 23px;"></a></dd>                    </dl>                  </div>                  <div class="detail last">                    <dl>                      <dt>                        <h5>俱乐部</h5>                      </dt>                      <dd> <a href="http://cto.csdn.net/?ref=toolbar" target="_blank">CTO俱乐部</a></dd>                      <dd> <a href="http://student.csdn.net/?ref=toolbar" target="_blank">高校俱乐部</a></dd>                    </dl>                  </div>                </div>              </div>            </li>            </ul>          </div>        </div>    </div>
+        <div class="tracking-ad" data-view="true" data-mod="ad_popu_72" data-mtp="62" data-order="40" data-con="ad_content_2072">
+                     <script id="popuLayer_js_q" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/popuLayer.js" defer="defer" type="text/javascript"></script>
+                <div id="layerd" style="position: fixed; bottom: 0px; right: 0px; line-height: 0px; z-index: 1000; width: 300px; height: 278px;">
+    	                <div class="J_close layer_close" style="display:;background-color:#efefef;padding:0px;color:#333;font:12px/24px Helvetica,Tahoma,Arial,sans-serif;text-align:right;">关闭</div><!-- 广告占位容器 -->
+                    <div id="cpro_u2895327">
+                        <!-- 投放代码 -->
+                        <script src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ds.js"></script>
+                       <!-- 广告位：PC端-博客详情页右侧弹窗-300*250 -->
+                            <script>
+                                (function () {
+                                    var s = "_" + Math.random().toString(36).slice(2);
+                                    document.write('<div id="' + s + '"></div>');
+                                    (window.slotbydup = window.slotbydup || []).push({
+                                        id: '4740870',
+                                        container: s,
+                                        size: '300,250',
+                                        display: 'inlay-fix'
+                                    });
+                                })();
+                            </script><div id="_51f9aes9jqyort9q8wyt5zsemi"></div><script charset="utf-8" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/fcwm"></script><div id="_jw08xs00qgvj0sgrk4n0tqpvi" style=""><ins style="display:none;padding-bottom:0px;"></ins><iframe width="300" frameborder="0" height="250" scrolling="no" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/s.html"></iframe></div><script type="text/javascript" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ojylrgbykmqybf.js"></script>
+                    </div></div>
+                <script>  document.getElementById("popuLayer_js_q").onload = function () {
+      var styObjd = styObj = { width: "300px", "height": parseInt(250) + 28 };
+      window.CSDN.Layer.PopuLayer("#layerd", { storageName: "layerd", styleObj: styObjd, total: 50, expoire: 1000 * 60 });
+  }</script>
+            
+     
+        </div>
+
+       
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        
+<div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/u011998835">u011998835的博客</a></h2>
+            <h3></h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+    
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>           
+                <li id="btnContents"><a href="http://blog.csdn.net/u011998835?viewmode=contents"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_mulu&#39;])">
+                    <img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/u011998835?viewmode=list"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_zhaiyao&#39;])">
+                    <img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/u011998835/rss/list"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_RSS&#39;])">
+                    <img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ico_rss.gif">订阅</span></a></li>                   
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "u011998835";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/u011998835";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod="popu_3"> 
+
+<a href="http://blog.csdn.net/turingbooks/article/details/78475571" target="_blank">
+<font color="red"><strong>图灵赠书——程序员11月书单</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<a href="http://edu.csdn.net/topic/python2?utm_source=blog4" target="_blank">
+<font color="blue"><strong>【思考】Python这么厉害的原因竟然是！</strong></font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/epubit17/article/details/78606519" target="_blank">
+<font color="blue"><strong>感恩节赠书：《深度学习》等异步社区优秀图书和作译者评选启动！</strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<a href="http://blog.csdn.net/broadview2006/article/details/78603363" target="_blank">
+<font color="red"><strong>每周荐书：京东架构、Linux内核、Python全栈</strong></font></a>
+
+
+
+</div>
+                        </div>
+
+                        
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="text/javascript" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/category.js"></script>
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+      var isBole = false; 
+      var fasrc="http://my.csdn.net/my/favorite/miniadd?t=IntelliJ+IDEA+Spring+Boot%ef%bc%889%ef%bc%89%e6%89%93%e6%88%90war%e5%8c%85&u=http://blog.csdn.net/u011998835/article/details/78389740"
+    </script>
+<div id="article_details" class="details">
+    
+<div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+    <h1>
+        <span class="link_title"><a href="http://blog.csdn.net/u011998835/article/details/78389740">
+        IntelliJ IDEA Spring Boot（9）打成war包        
+           
+        </a>
+        </span>
+
+         
+    </h1>
+</div>
+
+   
+
+    
+    <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href="http://www.csdn.net/tag/IntelliJ%20IDEA" target="_blank" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_tag&#39;]);">IntelliJ IDEA</a><a href="http://www.csdn.net/tag/Spring%20Boot" target="_blank" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_tag&#39;]);">Spring Boot</a><a href="http://www.csdn.net/tag/war" target="_blank" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_tag&#39;]);">war</a><a href="http://www.csdn.net/tag/java" target="_blank" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_tag&#39;]);">java</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2017-10-30 08:53</span>
+            <span class="link_view" title="阅读次数">398人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#comments" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_pinglun&#39;])">评论</a>(0)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle(&#39;IntelliJ+IDEA+Spring+Boot%ef%bc%889%ef%bc%89%e6%89%93%e6%88%90war%e5%8c%85&#39;,&#39;78389740&#39;);return false;" title="收藏" target="_blank">收藏</a></span>
+             <span class="link_report"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#report" onclick="javascript:report(78389740,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label onclick="GetCategoryArticles(&#39;7247580&#39;,&#39;u011998835&#39;,&#39;top&#39;,&#39;78389740&#39;);">
+                        <span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_fenlei&#39;]);">IntelliJ IDEA<em>（18）</em></span>
+                      <img class="arrow-down" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a href="http://blog.csdn.net/u011998835/article/category/7247580" target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_7247580">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+        <div class="bog_copyright">         
+            <p class="copyright_p">版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+
+
+
+<div id="article_content" class="article_content tracking-ad" data-mod="popu_307" data-dsm="post">
+
+<p><span style="font-size:24px">&nbsp;http://blog.csdn.net/u011998835/article/details/78386557
+<a target="_blank" href="http://blog.csdn.net/u011998835/article/details/78386557">
+上一篇文章</a>&nbsp;讲了如何打成jar包 发布运行，当然我还是想实际运行一下 war包的打包过程。</span></p>
+<p><span style="font-size:24px">&nbsp; &nbsp;war包的打包过程如下：</span></p>
+<p><span style="font-size:24px">&nbsp; &nbsp;</span></p><div class="dp-highlighter bg_html"><div class="bar"><div class="tools"><b>[html]</b> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;" target="_blank">view plain</a><span data-mod="popu_168"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="CopyToClipboard" title="copy" onclick="dp.sh.Toolbar.Command(&#39;CopyToClipboard&#39;,this);return false;" target="_blank">copy</a><div style="position: absolute; left: 520px; top: 673px; width: 18px; height: 18px; z-index: 99;"><embed id="ZeroClipboardMovie_1" src="http://static.blog.csdn.net/scripts/ZeroClipboard/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="18" height="18" name="ZeroClipboardMovie_1" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=18&amp;height=18" wmode="transparent"></div></span><span data-mod="popu_169"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;" target="_blank">print</a></span><a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;" target="_blank">?</a></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>com.dashuai</span><span class="tag">&lt;/</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>dadminboot</span><span class="tag">&lt;/</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">version</span><span class="tag">&gt;</span><span>0.0.1-SNAPSHOT</span><span class="tag">&lt;/</span><span class="tag-name">version</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">packaging</span><span class="tag">&gt;</span><span>war</span><span class="tag">&lt;/</span><span class="tag-name">packaging</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">name</span><span class="tag">&gt;</span><span>DAdminBoot</span><span class="tag">&lt;/</span><span class="tag-name">name</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><pre name="code" class="html" style="display: none;">&lt;groupId&gt;com.dashuai&lt;/groupId&gt;
+	&lt;artifactId&gt;dadminboot&lt;/artifactId&gt;
+	&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+	&lt;packaging&gt;war&lt;/packaging&gt;
+
+	&lt;name&gt;DAdminBoot&lt;/name&gt;</pre><br>
+<p></p>
+<p><span style="font-size:24px">修改packaging为war包。</span></p>
+<p><span style="font-size:24px">剔除掉默认的tomcat</span></p>
+<p><span style="font-size:24px"></span></p><div class="dp-highlighter bg_html"><div class="bar"><div class="tools"><b>[html]</b> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;" target="_blank">view plain</a><span data-mod="popu_168"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="CopyToClipboard" title="copy" onclick="dp.sh.Toolbar.Command(&#39;CopyToClipboard&#39;,this);return false;" target="_blank">copy</a><div style="position: absolute; left: 520px; top: 955px; width: 18px; height: 18px; z-index: 99;"><embed id="ZeroClipboardMovie_2" src="http://static.blog.csdn.net/scripts/ZeroClipboard/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="18" height="18" name="ZeroClipboardMovie_2" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&amp;width=18&amp;height=18" wmode="transparent"></div></span><span data-mod="popu_169"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;" target="_blank">print</a></span><a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;" target="_blank">?</a></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">dependency</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>org.springframework.boot</span><span class="tag">&lt;/</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>spring-boot-starter-web</span><span class="tag">&lt;/</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">exclusions</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">exclusion</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>org.springframework.boot</span><span class="tag">&lt;/</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>spring-boot-starter-tomcat</span><span class="tag">&lt;/</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">exclusion</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">exclusions</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">dependency</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">dependency</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>org.springframework.boot</span><span class="tag">&lt;/</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>spring-boot-starter-tomcat</span><span class="tag">&lt;/</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">scope</span><span class="tag">&gt;</span><span>provided</span><span class="tag">&lt;/</span><span class="tag-name">scope</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">dependency</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><pre name="code" class="html" style="display: none;">&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+			&lt;exclusions&gt;
+				&lt;exclusion&gt;
+					&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+					&lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+				&lt;/exclusion&gt;
+			&lt;/exclusions&gt;
+		&lt;/dependency&gt;
+
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+			&lt;scope&gt;provided&lt;/scope&gt;
+		&lt;/dependency&gt;</pre><br>
+剔除自带的tomcat8的容器，并设定tomcat依赖scope为provided的<p></p>
+<p><span style="font-size:24px">如果项目中依旧使用了jsp的话，请设定如下</span></p>
+<p><span style="font-size:24px"></span></p><div class="dp-highlighter bg_html"><div class="bar"><div class="tools"><b>[html]</b> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;" target="_blank">view plain</a><span data-mod="popu_168"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="CopyToClipboard" title="copy" onclick="dp.sh.Toolbar.Command(&#39;CopyToClipboard&#39;,this);return false;" target="_blank">copy</a><div style="position: absolute; left: 520px; top: 1417px; width: 18px; height: 18px; z-index: 99;"><embed id="ZeroClipboardMovie_3" src="http://static.blog.csdn.net/scripts/ZeroClipboard/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="18" height="18" name="ZeroClipboardMovie_3" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=3&amp;width=18&amp;height=18" wmode="transparent"></div></span><span data-mod="popu_169"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;" target="_blank">print</a></span><a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;" target="_blank">?</a></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">dependency</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>org.apache.tomcat.embed</span><span class="tag">&lt;/</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>tomcat-embed-jasper</span><span class="tag">&lt;/</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">scope</span><span class="tag">&gt;</span><span>provided</span><span class="tag">&lt;/</span><span class="tag-name">scope</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&lt;!--&nbsp;如果不注释，你会发现main线程运行报404错误，必须使用&nbsp;spring-boot:run这个命令运行才行。所以我们注释掉--&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">dependency</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><pre name="code" class="html" style="display: none;">&lt;dependency&gt;
+			&lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+			&lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+			&lt;scope&gt;provided&lt;/scope&gt;
+			&lt;!-- 如果不注释，你会发现main线程运行报404错误，必须使用 spring-boot:run这个命令运行才行。所以我们注释掉--&gt;
+		&lt;/dependency&gt;</pre>加上scope为provided，尽管项目在运行的时候，不能使用main线程，但打包的时候，请加上scope。build和打包jar是一样的，如下。那么pom文件的就算OK了。<p></p>
+<p><span style="font-size:24px"></span></p><div class="dp-highlighter bg_html"><div class="bar"><div class="tools"><b>[html]</b> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;" target="_blank">view plain</a><span data-mod="popu_168"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="CopyToClipboard" title="copy" onclick="dp.sh.Toolbar.Command(&#39;CopyToClipboard&#39;,this);return false;" target="_blank">copy</a><div style="position: absolute; left: 520px; top: 1664px; width: 18px; height: 18px; z-index: 99;"><embed id="ZeroClipboardMovie_4" src="http://static.blog.csdn.net/scripts/ZeroClipboard/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="18" height="18" name="ZeroClipboardMovie_4" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=4&amp;width=18&amp;height=18" wmode="transparent"></div></span><span data-mod="popu_169"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;" target="_blank">print</a></span><a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;" target="_blank">?</a></div></div><ol start="1" class="dp-xml"><li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">build</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">plugins</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">plugin</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>org.springframework.boot</span><span class="tag">&lt;/</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>spring-boot-maven-plugin</span><span class="tag">&lt;/</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">version</span><span class="tag">&gt;</span><span>1.4.2.RELEASE</span><span class="tag">&lt;/</span><span class="tag-name">version</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">configuration</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">fork</span><span class="tag">&gt;</span><span>true</span><span class="tag">&lt;/</span><span class="tag-name">fork</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">mainClass</span><span class="tag">&gt;</span><span>com.dashuai.dadminboot.DAdminBootApplication</span><span class="tag">&lt;/</span><span class="tag-name">mainClass</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">configuration</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">executions</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">execution</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">goals</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">goal</span><span class="tag">&gt;</span><span>repackage</span><span class="tag">&lt;/</span><span class="tag-name">goal</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">goals</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">execution</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">executions</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">plugin</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">plugin</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>org.apache.maven.plugins</span><span class="tag">&lt;/</span><span class="tag-name">groupId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>maven-war-plugin</span><span class="tag">&lt;/</span><span class="tag-name">artifactId</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">configuration</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">failOnMissingWebXml</span><span class="tag">&gt;</span><span>false</span><span class="tag">&lt;/</span><span class="tag-name">failOnMissingWebXml</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">configuration</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">plugin</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">plugins</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">resources</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&lt;!--&nbsp;打包时将jsp文件拷贝到META-INF目录下--&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">resource</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&lt;!--&nbsp;指定resources插件处理哪个目录下的资源文件&nbsp;--&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">directory</span><span class="tag">&gt;</span><span>src/main/webapp</span><span class="tag">&lt;/</span><span class="tag-name">directory</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&lt;!--注意此次必须要放在此目录下才能被访问到--&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">targetPath</span><span class="tag">&gt;</span><span>META-INF/resources</span><span class="tag">&lt;/</span><span class="tag-name">targetPath</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">includes</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">include</span><span class="tag">&gt;</span><span>**/**</span><span class="tag">&lt;/</span><span class="tag-name">include</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">includes</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">resource</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">resource</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">directory</span><span class="tag">&gt;</span><span>src/main/resources</span><span class="tag">&lt;/</span><span class="tag-name">directory</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">includes</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">include</span><span class="tag">&gt;</span><span>**/**</span><span class="tag">&lt;/</span><span class="tag-name">include</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">includes</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">filtering</span><span class="tag">&gt;</span><span>false</span><span class="tag">&lt;/</span><span class="tag-name">filtering</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">resource</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">resources</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/</span><span class="tag-name">build</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><pre name="code" class="html" style="display: none;">&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+				&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+				&lt;version&gt;1.4.2.RELEASE&lt;/version&gt;
+				&lt;configuration&gt;
+					&lt;fork&gt;true&lt;/fork&gt;
+					&lt;mainClass&gt;com.dashuai.dadminboot.DAdminBootApplication&lt;/mainClass&gt;
+				&lt;/configuration&gt;
+				&lt;executions&gt;
+					&lt;execution&gt;
+						&lt;goals&gt;
+							&lt;goal&gt;repackage&lt;/goal&gt;
+						&lt;/goals&gt;
+					&lt;/execution&gt;
+				&lt;/executions&gt;
+			&lt;/plugin&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+				&lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+				&lt;configuration&gt;
+					&lt;failOnMissingWebXml&gt;false&lt;/failOnMissingWebXml&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+		&lt;resources&gt;
+			&lt;!-- 打包时将jsp文件拷贝到META-INF目录下--&gt;
+			&lt;resource&gt;
+				&lt;!-- 指定resources插件处理哪个目录下的资源文件 --&gt;
+				&lt;directory&gt;src/main/webapp&lt;/directory&gt;
+				&lt;!--注意此次必须要放在此目录下才能被访问到--&gt;
+				&lt;targetPath&gt;META-INF/resources&lt;/targetPath&gt;
+				&lt;includes&gt;
+					&lt;include&gt;**/**&lt;/include&gt;
+				&lt;/includes&gt;
+			&lt;/resource&gt;
+			&lt;resource&gt;
+				&lt;directory&gt;src/main/resources&lt;/directory&gt;
+				&lt;includes&gt;
+					&lt;include&gt;**/**&lt;/include&gt;
+				&lt;/includes&gt;
+				&lt;filtering&gt;false&lt;/filtering&gt;
+			&lt;/resource&gt;
+		&lt;/resources&gt;
+	&lt;/build&gt;</pre><br>
+接下来还要做一件事情。就是application这个类。<p></p>
+<p><span style="font-size:24px"></span></p><div class="dp-highlighter bg_java"><div class="bar"><div class="tools"><b>[java]</b> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="ViewSource" title="view plain" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;" target="_blank">view plain</a><span data-mod="popu_168"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="CopyToClipboard" title="copy" onclick="dp.sh.Toolbar.Command(&#39;CopyToClipboard&#39;,this);return false;" target="_blank">copy</a><div style="position: absolute; left: 520px; top: 2631px; width: 18px; height: 18px; z-index: 99;"><embed id="ZeroClipboardMovie_5" src="http://static.blog.csdn.net/scripts/ZeroClipboard/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="18" height="18" name="ZeroClipboardMovie_5" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=5&amp;width=18&amp;height=18" wmode="transparent"></div></span><span data-mod="popu_169"> <a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="PrintSource" title="print" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;" target="_blank">print</a></span><a href="http://blog.csdn.net/u011998835/article/details/78389740#" class="About" title="?" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;" target="_blank">?</a></div></div><ol start="1" class="dp-j"><li class="alt"><span><span class="annotation">@EnableTransactionManagement</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span><span class="annotation">@EnableCaching</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="annotation">@SpringBootApplication</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;DAdminBootApplication&nbsp;</span><span class="keyword">extends</span><span>&nbsp;SpringBootServletInitializer{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;main(String[]&nbsp;args)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpringApplication.run(DAdminBootApplication.<span class="keyword">class</span><span>,&nbsp;args);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span><span>&nbsp;SpringApplicationBuilder&nbsp;configure(SpringApplicationBuilder&nbsp;builder)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;builder.sources(DAdminBootApplication.</span><span class="keyword">class</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre name="code" class="java" style="display: none;">@EnableTransactionManagement
+@EnableCaching
+@SpringBootApplication
+public class DAdminBootApplication extends SpringBootServletInitializer{
+
+	public static void main(String[] args) {
+		SpringApplication.run(DAdminBootApplication.class, args);
+	}
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(DAdminBootApplication.class);
+	}
+}</pre>需要继承SpringBootServletInitializer<p></p>
+<p><span style="font-size:24px">然后我们maven clean maven package 打包成war包。</span></p>
+<p><span style="font-size:24px"><img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/20171030090009761" alt=""><br>
+拷贝到tomcat目录下，</span></p>
+<p><span style="font-size:24px"><img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/20171030090109251" alt=""><br>
+</span></p>
+<p><span style="font-size:24px">运行tomcat，会自动解压war包。</span></p>
+<p><span style="font-size:24px"><img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/20171030090219057" alt=""><br>
+</span></p>
+<p><span style="font-size:24px">然后地址栏访问。</span></p>
+<p><span style="font-size:24px"><img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/20171030090312443" alt=""><br>
+此时访问需要加上部署的项目文件夹，除非你拷贝到ROOT目录。<img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/20171030090511905" alt=""></span></p>
+<p><span style="font-size:24px">这是war包里面的结构，里面也是有 springboot存在的影子的。</span></p>
+<p><span style="font-size:24px">那么两种打包方式就介绍到这。</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+<p><span style="font-size:24px"><br>
+</span></p>
+   
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="digg" articleid="78389740">
+            <dl id="btnDigg" class="digg digg_disable" onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>0</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable" onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" target="_blank">&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" target="_blank">&nbsp;</a></div>
+    <script type="text/javascript">
+        function btndigga() {
+            $(".tracking-ad[data-mod='popu_222'] a").click();
+        }
+        function btnburya() {
+            $(".tracking-ad[data-mod='popu_223'] a").click();
+        }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_shangyipian&#39;]);location.href=&#39;http://blog.csdn.net/u011998835/article/details/78386557&#39;;">上一篇</span><a href="http://blog.csdn.net/u011998835/article/details/78386557" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_shangyipian&#39;])">IntelliJ IDEA Spring Boot（8）使用JSP，打包jar文件运行带有jsp的项目</a></li>
+                <li class="next_article"><span onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_xiayipian&#39;]);location.href=&#39;http://blog.csdn.net/u011998835/article/details/78390978&#39;;">下一篇</span><a href="http://blog.csdn.net/u011998835/article/details/78390978" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_xiayipian&#39;])">Spring Tool Suite 创建spring boot项目</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+            <div class="similar_article">
+                    <h4></h4>
+                    <div class="similar_c" style="margin:20px 0px 0px 0px">
+                        <div class="similar_c_t">
+                          &nbsp;&nbsp;相关文章推荐
+                        </div>
+                   
+                        <div class="similar_wrap tracking-ad" data-mod="popu_36" style="max-height:250px">                       
+                            <ul class="similar_list fl">    
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/MT_xiaoshutong/article/details/54019993" title="使用idea创建springboot项目并打成war包发布到weblogic上" strategy="BlogCommendFromBaidu_0" target="_blank">使用idea创建springboot项目并打成war包发布到weblogic上</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/series_detail/74?utm_source=blog7" title="MySQL在微信支付下的高可用运营--莫晓东" strategy="undefined" target="_blank">MySQL在微信支付下的高可用运营--莫晓东</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/qq_31971675/article/details/53727660" title="Springboot 项目在IDEA或eclipse下打包" strategy="BlogCommendFromBaidu_1" target="_blank">Springboot 项目在IDEA或eclipse下打包</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/series_detail/73?utm_source=blog7" title="容器技术在58同城的实践--姚远" strategy="undefined" target="_blank">容器技术在58同城的实践--姚远</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/qq_28702545/article/details/53105232" title="SpringBoot+IDEA+Maven快速入门" strategy="BlogCommendFromBaidu_2" target="_blank">SpringBoot+IDEA+Maven快速入门</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/series_detail/73?utm_source=blog7" title="SDCC 2017之容器技术实战线上峰会" strategy="undefined" target="_blank">SDCC 2017之容器技术实战线上峰会</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/qq_26525215/article/details/54788514" title="【Maven】项目打包-war包-Jar包[IDEA将项目打成war包]" strategy="BlogCommendFromBaidu_3" target="_blank">【Maven】项目打包-war包-Jar包[IDEA将项目打成war包]</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/series_detail/74?utm_source=blog7" title="SDCC 2017之数据库技术实战线上峰会" strategy="undefined" target="_blank">SDCC 2017之数据库技术实战线上峰会</a>
+                                   </li>
+                            </ul>
+                              <ul class="similar_list fr">      
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/linzhiqiang0316/article/details/52601292" title="利用IDEA将SpringBoot的项目打包成war文件" strategy="BlogCommendFromBaidu_4" target="_blank">利用IDEA将SpringBoot的项目打包成war文件</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/series_detail/73?utm_source=blog7" title="腾讯云容器服务架构实现介绍--董晓杰" strategy="undefined" target="_blank">腾讯云容器服务架构实现介绍--董晓杰</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/lwj_199011/article/details/54089305" title="idea中将多个spring boot项目放在一个maven项目中" strategy="BlogCommendFromBaidu_5" target="_blank">idea中将多个spring boot项目放在一个maven项目中</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://edu.csdn.net/huiyiCourse/series_detail/74?utm_source=home7" title="微博热点事件背后的数据库运维心得--张冬洪" strategy="undefined" target="_blank">微博热点事件背后的数据库运维心得--张冬洪</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/qq_35498405/article/details/78054536" title="SpringBoot idea maven打包war及运行war包" strategy="BlogCommendFromBaidu_6" target="_blank">SpringBoot idea maven打包war及运行war包</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/Hzt_fighting_up/article/details/78174291" title="idea打包SpringBoot项目打包成jar包和war" strategy="BlogCommendFromBaidu_7" target="_blank">idea打包SpringBoot项目打包成jar包和war</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/ZuiZaiYingZeJie/article/details/72287123" title="intelliJ idea2016将web工程打成war包解决方案" strategy="BlogCommendFromCsdn_8" target="_blank">intelliJ idea2016将web工程打成war包解决方案</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/yums467/article/details/51660683" title="Intellij IDEA社区版打包Maven项目成war包，并部署到tomcat上" strategy="BlogCommendFromCsdn_9" target="_blank">Intellij IDEA社区版打包Maven项目成war包，并部署到tomcat上</a>
+                                   </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+   
+      
+</div>
+
+     <div>
+           
+
+       
+                           
+            <!-- 广告位：PC端-博客内容页-banner1-960*90 --> 
+           
+         <!-- 广告位：PC端-博客详情页底部banner-960*90 -->
+            <script>
+                (function() {
+                    var s = "_" + Math.random().toString(36).slice(2);
+                    document.write('<div id="' + s + '"></div>');
+                    (window.slotbydup=window.slotbydup || []).push({
+                        id: '4770928',
+                        container: s,
+                        size: '960,90',
+                        display: 'inlay-fix'
+                    });
+                })();
+            </script><div id="_lg2744u1t4yzif7ldu0hk6gvi"></div><script charset="utf-8" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/fcwm(1)"></script><div id="_qhrnt2opnhoemut5oac7n9udi" style=""><iframe width="960" frameborder="0" height="90" scrolling="no" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/s(1).html"></iframe></div><script type="text/javascript" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/kfunnhoouimhnlou.js"></script>
+    </div>
+
+<div id="suggest">
+
+
+
+</div>
+         <script language="javascript" type="text/javascript">     
+             $(function(){
+                 $.get("/u011998835/svc/GetSuggestContent/78389740",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+
+
+            
+                                    
+            
+                                    
+
+        <!-- 广告位开始 -->
+        <!-- 广告位结束 -->
+
+
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list"><br>&nbsp;&nbsp;暂无评论<br><br><div class="clear"></div></div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form"><div class="guest_link">您还没有登录,请<a href="javascript:void(0);" onclick="javascript:loginbox();">[登录]</a>或<a href="http://passport.csdn.net/account/register?from=http%3A%2F%2Fblog.csdn.net%2Fu011998835%2Farticle%2Fdetails%2F78389740">[注册]</a></div></div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '78389740';
+    var commentscount = 0;
+    var islock = false
+</script>
+
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top" style="bottom:60px;">
+
+
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/blog-icon-reply.png" alt="快速回复">
+        </a>    
+    <a id="d-top-a" class="btn btn-top backtop" style="display: none;" title="返回顶部" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_huidaodingbu&#39;])">         
+         <img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+
+
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+
+<script type="text/javascript">
+    $(function(){        
+        
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+    var articletitle='IntelliJ IDEA Spring Boot（9）打成war包';
+
+</script>
+
+
+
+
+
+
+
+
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+
+    <div class="side">
+
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/u011998835" target="_blank">
+    <img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/1_u011998835.jpg" title="访问我的空间" style="max-width:90%">
+    </a>
+    <br>
+    <span><a href="http://my.csdn.net/u011998835" class="user_name" target="_blank">梅利奥达斯</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter" title="[发私信]" onclick="window.open(&#39;http://msg.csdn.net/letters/model?receiver=u011998835&#39;,&#39;_blank&#39;,&#39;height=350,width=700&#39;);_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_sixin&#39;])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+               </div>
+
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>2977次</span></li>
+    <li>积分：<span>219</span> </li>    
+    <li>等级： <span style="position:relative;display:inline-block;z-index:1">
+            <img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/blog2.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：219 </div>
+        </span>  </li>
+    <li>排名：<span>千里之外</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>19篇</span></li>
+    <li>转载：<span>0篇</span></li>
+    <li>译文：<span>0篇</span></li>
+    <li>评论：<span>5条</span></li>
+</ul>
+</ul>
+</div>
+
+
+     
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" class="form_search csdn-tracking-statistics" target="_blank" data-mod="popu_306">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字"></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog">
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+   
+    $(function () {
+        $("#btnSubmit").unbind("click");
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {           
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            if ($("#inputSearch").val() == "") {               
+                alert("请录入搜索关键词！");                         
+                return false;
+            }
+            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+            var url = "/" + username + "?q=" + encodeURIComponent($("#inputSearch").val());
+            window.location.href = url;
+        }   
+    });
+</script> 
+<div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="http://blog.csdn.net/u011998835/article/category/7247580" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">IntelliJ IDEA</a><span>(19)</span>
+                </li>
+                 <li>
+                    <a href="http://blog.csdn.net/u011998835/article/category/7258060" onclick="_gaq.push([&#39;_trackEvent&#39;,&#39;function&#39;, &#39;onclick&#39;, &#39;blog_articles_wenzhangfenlei&#39;]); ">Spring Tool Suite</a><span>(1)</span>
+                </li>
+</ul>
+</div>
+<div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="http://blog.csdn.net/u011998835/article/month/2017/11">2017年11月</a><span>(1)</span></li><li><a href="http://blog.csdn.net/u011998835/article/month/2017/10">2017年10月</a><span>(18)</span></li>
+</div>
+</ul>
+</div>
+
+<div id="hotarticls" class="panel tracking-ad" data-mod="popu_340">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78386557" title="IntelliJ IDEA Spring Boot（8）使用JSP，打包jar文件运行带有jsp的项目" target="_blank">IntelliJ IDEA Spring Boot（8）使用JSP，打包jar文件运行带有jsp的项目</a><span>(720)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78389740" title="IntelliJ IDEA Spring Boot（9）打成war包" target="_blank">IntelliJ IDEA Spring Boot（9）打成war包</a><span>(390)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78360796" title="IntelliJ IDEA 学习SpringBoot（2） thymeleaf 资源访问和路径写法" target="_blank">IntelliJ IDEA 学习SpringBoot（2） thymeleaf 资源访问和路径写法</a><span>(336)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78364360" title="IntelliJ IDEA Spring Boot学习（4） 集成mybatis" target="_blank">IntelliJ IDEA Spring Boot学习（4） 集成mybatis</a><span>(213)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78352829" title="Intellij IDEA 学习Spring Boot (1)" target="_blank">Intellij IDEA 学习Spring Boot (1)</a><span>(212)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78369721" title="IntelliJ IDEA Spring Boot（5） 集成Hibernate" target="_blank">IntelliJ IDEA Spring Boot（5） 集成Hibernate</a><span>(187)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78402117" title="Intellij IDEA Spring Boot (10) 集成mybatis以及分页" target="_blank">Intellij IDEA Spring Boot (10) 集成mybatis以及分页</a><span>(147)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78362795" title="IntelliJ IDEA Spring Boot(3) 数据库JDBC的使用" target="_blank">IntelliJ IDEA Spring Boot(3) 数据库JDBC的使用</a><span>(102)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78338187" title="IntelliJ IDEA 工具下载与安装(01)" target="_blank">IntelliJ IDEA 工具下载与安装(01)</a><span>(100)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78379905" title="IntelliJ IDEA Spring Boot（6） 集成Hibernate+Shiro+Ehcache" target="_blank">IntelliJ IDEA Spring Boot（6） 集成Hibernate+Shiro+Ehcache</a><span>(98)</span>
+</li>
+</ul>
+</div>
+
+<div id="hotarticls2" class="panel tracking-ad" data-mod="popu_341" "="">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78386557" title="IntelliJ IDEA Spring Boot（8）使用JSP，打包jar文件运行带有jsp的项目" target="_blank">IntelliJ IDEA Spring Boot（8）使用JSP，打包jar文件运行带有jsp的项目</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78340251" title="spring+hibernate+shiro+Ehcache 项目分享" target="_blank">spring+hibernate+shiro+Ehcache 项目分享</a><span>(2)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78352829" title="Intellij IDEA 学习Spring Boot (1)" target="_blank">Intellij IDEA 学习Spring Boot (1)</a><span>(1)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78362795" title="IntelliJ IDEA Spring Boot(3) 数据库JDBC的使用" target="_blank">IntelliJ IDEA Spring Boot(3) 数据库JDBC的使用</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78360796" title="IntelliJ IDEA 学习SpringBoot（2） thymeleaf 资源访问和路径写法" target="_blank">IntelliJ IDEA 学习SpringBoot（2） thymeleaf 资源访问和路径写法</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78340080" title="IntelliJ IDEA 快捷键" target="_blank">IntelliJ IDEA 快捷键</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78339992" title="IntelliJ IDEA 创建maven web项目2（6）" target="_blank">IntelliJ IDEA 创建maven web项目2（6）</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78339037" title="IntelliJ IDEA 创建web项目1（4）" target="_blank">IntelliJ IDEA 创建web项目1（4）</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78338948" title="IntelliJ  IDEA  创建Java项目(3)" target="_blank">IntelliJ  IDEA  创建Java项目(3)</a><span>(0)</span>
+</li>
+<li>
+<a href="http://blog.csdn.net/u011998835/article/details/78598970" title="Intellij IDEA Spring Boot (11) MyBatis Generator 自动生成" target="_blank">Intellij IDEA Spring Boot (11) MyBatis Generator 自动生成</a><span>(0)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4" style="height:250px;">
+    <div id="cpro_u2734133" style="text-align:center;">
+        <!-- 投放代码 -->
+        <!-- 请置于所有广告位代码之前 -->
+        <script src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ds.js"></script>
+
+        <!-- 广告位：PC端-博客详情页-左侧button1-250*250 -->
+        <script>
+            (function ()
+            {
+                var s = "_" + Math.random().toString(36).slice(2);
+                document.write('<div id="' + s + '"></div>');
+                (window.slotbydup = window.slotbydup || []).push({
+                    id: '4740887',
+                    container: s,
+                    size: '250,250',
+                    display: 'inlay-fix'
+                });
+            })();
+        </script><div id="_auysr5ih8p7ed2c7qedcdte29"></div><script charset="utf-8" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/fcwm(2)"></script><div id="_t226wk10h8boutk600td6xbt9" style="width: 100%;"><iframe width="250" frameborder="0" height="250" scrolling="no" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/s(2).html"></iframe></div><script type="text/javascript" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/bwlxosfoozdec.js"></script>
+
+    </div>
+
+
+</div>
+
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="http://blog.csdn.net/u011998835/article/details/78352829#comments">Intellij IDEA 学习Spring Boot (1)</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/qq_36575059" class="user_name">太阳怕黑</a>:
+最近在学习这个spring boot，很好的教程，就此谢过！！！（内容很仔细）
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/u011998835/article/details/78340251#comments">spring+hibernate+shiro+Ehcache 项目分享</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/qq56477643" class="user_name">qq56477643</a>:
+抱歉，没有仔细看你的说明，按照你说用 maven方式运行就可以了。只不过自己要新建一个数据库，修改连...
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/u011998835/article/details/78340251#comments">spring+hibernate+shiro+Ehcache 项目分享</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/qq56477643" class="user_name">qq56477643</a>:
+你好，项目我已经下载了，但是缺少数据库的表结构和数据，能麻烦再分享一下吗
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/u011998835/article/details/78386557#comments">IntelliJ IDEA Spring Boot（8）使用JSP，打包jar文件运行带有jsp的项目</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/u011998835" class="user_name">梅利奥达斯</a>:
+@u013945765:1.5.8版本什么就把你搞伤了，分享一下。
+    </p>
+    </li>
+    <li>
+   
+         <a href="http://blog.csdn.net/u011998835/article/details/78386557#comments">IntelliJ IDEA Spring Boot（8）使用JSP，打包jar文件运行带有jsp的项目</a>
+    <p style="margin:0px;"><a href="http://blog.csdn.net/u013945765" class="user_name">小熊维尼戴斯</a>:
+终于解决了。1.5.8版本，想哭
+    </p>
+    </li>
+</ul>
+</div>
+
+    </div>
+    <div class="clear">
+    </div>
+
+                   <div class="tracking-ad" data-view="true" data-mod="ad_popu_189" data-mtp="63" data-order="40" data-con="ad_content_1259" style="width: 250px; height: 250px;">
+                        <div id="nav_show_top_stop" style="width: 250px; height: 250px; z-index: 1000; position: fixed; top: 0px;">
+                       
+                            <div id="cpro_u3031286" style="text-align:center;">
+                                 <!-- 投放代码 -->
+                               
+                                <!-- 请置于所有广告位代码之前 -->
+                                <script src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ds.js"></script>
+
+                                <!-- 广告位：PC端-博客详情页-左侧Button2-250*250 -->
+                                <script>
+                                    (function () {
+                                        var s = "_" + Math.random().toString(36).slice(2);
+                                        document.write('<div id="' + s + '"></div>');
+                                        (window.slotbydup = window.slotbydup || []).push({
+                                            id: '4740890',
+                                            container: s,
+                                            size: '250,250',
+                                            display: 'inlay-fix'
+                                        });
+                                    })();
+                                </script><div id="_017vogeg950owwnl1l2l0udi"></div><script charset="utf-8" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/fcwm(3)"></script><div style=""><ins style="display:none;"></ins><iframe width="250" frameborder="0" height="250" scrolling="no" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/s(3).html"></iframe></div><script type="text/javascript" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/bwocoflyvzdec.js"></script>
+
+
+
+                            </div></div>
+                   </div>
+                    <script>
+
+                        setTimeout(function () {
+                            var naviga_offsetTop = 0; function naviga_stay_top() {
+                                var scrollTop = jQuery(document).scrollTop();
+                                if (scrollTop > naviga_offsetTop) {
+                                    jQuery("#nav_show_top_stop").css({ "position": "fixed" });
+                                    jQuery("#nav_show_top_stop").css({ "top": "0px" });
+                                } else { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": naviga_offsetTop - scrollTop + "px" }); }
+                            }
+                            function onload_function() {
+                                naviga_offsetTop = jQuery("#nav_show_top_stop").position().top;
+                                jQuery(window).bind("scroll", naviga_stay_top); jQuery(window).bind("mousewheel", naviga_stay_top);
+                                jQuery(document).bind("scroll", naviga_stay_top); jQuery(document).bind("mousewheel", naviga_stay_top);
+                            } jQuery(document).ready(onload_function);
+                        }, 200);
+
+                    </script>
+
+           </div>   
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+
+    </div>
+     
+
+
+       <script type="text/javascript" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/MathJax.js"></script>   
+    
+    <script src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/csdn_blog_detail.min.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/pub_footer_2014.css"><div class="pub_fo"><div id="pub_footerall" class="pub_footer_new"><dl><dt></dt> <dd class="foot_sub_menu"><a href="http://www.csdn.net/company/about.html" target="_blank">公司简介</a><span>|</span><a href="http://www.csdn.net/company/recruit.html" target="_blank">招贤纳士</a><span>|</span><a href="http://www.csdn.net/company/marketing.html" target="_blank">广告服务</a><span>|</span><a href="http://www.csdn.net/company/contact.html" target="_blank">联系方式</a><span>|</span><a href="http://www.csdn.net/company/statement.html" target="_blank">版权声明</a><span>|</span><a href="http://www.csdn.net/company/layer.html" target="_blank">法律顾问</a><span>|</span><a href="mailto:webmaster@csdn.net">问题报告</a><span>|</span><a target="_blank" href="http://www.csdn.net/friendlink.html">合作伙伴</a><span>|</span><a href="http://bbs.csdn.net/forums/Service" target="_blank">论坛反馈</a></dd><dd class="foot_contact"><a href="javascript:void(0);" target="_blank" class="qq">网站客服</a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2251809102&amp;site=qq&amp;menu=yes" target="_blank" class="qq">杂志客服</a><a href="http://e.weibo.com/csdnsupport/profile" target="_blank" class="weibo">微博客服</a><a href="mailto:webmaster@csdn.net" class="email" title="联系邮箱">webmaster@csdn.net</a><span class="phone" title="服务热线">400-660-0108</span><span class="interval">|</span><span>北京创新乐知信息技术有限公司 版权所有</span><span class="interval">|</span><span>江苏知之为计算机有限公司</span><span class="interval">|</span><span>江苏乐知网络技术有限公司</span></dd><dd class="foot_copyright"><span>京&nbsp;ICP&nbsp;证&nbsp;09002463&nbsp;号</span><span class="interval">|</span><span>Copyright © 1999-2017, CSDN.NET, All Rights Reserved&nbsp;</span><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202001032100010" target="_blank"><img src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/gongshang_logos.gif" alt="GongshangLogo" title=""></a></dd></dl></div></div><div id="note1" class="csdn_note" style="display:none; position:absolute; z-index:9999; width:440px">  <span class="notice_top_arrow"><span class="inner"></span></span>  <div class="box"></div></div><div class="csdn_notice_tip" style="display:none; position:absolute; z-index:9990; width:170px">  <iframe src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/saved_resource(1).html" frameborder="0" scrolling="no" style="z-index:-1;position:absolute;top:0;left:0;width:100%;height:100%;background:transparent"></iframe>  <div class="tip_text">您有<strong>0</strong>条新通知</div>  <a href="javascript:void 0" class="close2"></a></div><script id="noticeScript" type="text/javascript" btnid="header_notice_num" wrapid="note1" count="5" subcount="5" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/notify.js"></script><input type="hidden" id="aa_g_data_ids">
+        
+    <script type="text/javascript" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/csdn_public_blog_detail.min.js"></script>
+
+    <script type="text/javascript" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/showblogmedal.ashx"></script>
+
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334" src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/52b5334.js"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+          
+    <div class="pop_CA_cover" style="display:none"></div>
+    <div class="pop pop_CA" style="display:none">
+          <div class="CA_header">
+            收藏助手
+            <span class="cancel_icon" id="fapancle" onclick="$(&#39;.pop_CA&#39;).hide();$(&#39;.pop_CA_cover&#39;).hide();"></span>
+          </div>
+          <iframe src="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/saved_resource(2).html" id="fa" frameborder="0" width="100%" height="360" scrolling="no"></iframe>
+    </div>
+
+
+        <script type="text/javascript">
+
+            $(function () {
+                var fromjs = $("#fromjs");
+                if (fromjs.length > 0) {
+                    $("#fromjs .markdown_views pre").addClass("prettyprint");
+                    prettyPrint();
+
+                    $('pre.prettyprint code').each(function () {
+                        var lines = $(this).text().split('\n').length;
+                        var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+                        $(this).addClass('has-numbering').parent().append($numbering);
+                        for (i = 1; i <= lines; i++) {
+                            $numbering.append($('<li/>').text(i));
+                        };
+                        $numbering.fadeIn(1700);
+                    });
+
+                    $('.pre-numbering li').css("color", "#999");
+                }
+            });
+
+            $(".markdown_views a[target!='_blank']").attr("target", "_blank");
+
+            //$(".toc a[target='_blank']").attr("target", "");
+
+            setTimeout(function () {
+                $(".toc a[target='_blank']").attr("target", "");
+            }, 500);
+
+        </script>
+
+
+   
+<link rel="stylesheet" type="text/css" media="screen" href="./IntelliJ IDEA Spring Boot（9）打成war包 - u011998835的博客 - CSDN博客_files/ask_float_fonts_css-6b30a53970eb5c3a2a045e3df585b475.css"><div data-mod="popu_64" class="csdn-tracking-statistics" chg-blk="0"><a id="com-quick-QRcode" class="QRcodebg1" title="扫描二维码" style="top:196px"><span class="closeQR"></span></a><a id="com-quick-reply" title="快速回复" style="top:330px"></a><a id="com-quick-collect" title="我要收藏" style="top:368px"></a><a id="com-d-top-a" style="top: 406px; display: block;" title="返回顶部" onclick=""></a></div><div class="pop_edit ask_second comm_ask_second"><h3>提问</h3><span class="ask_float_span">您的问题将会被发布在“<a class="ask_float_channel" href="http://ask.csdn.net/" target="_blank" style="cursor:pointer">技术问答</a>”频道</span><a href="http://blog.csdn.net/u011998835/article/details/78389740#" nodetype="close" class="close">×</a><div class="context"><div class="err_div"><span class="err_ico"></span><span class="err_txt">该问题已存在，请勿重复提问</span></div><div class="input_div"><input id="askInputSecond" type="text" style="font-size:14px;" placeholder="问题标题"></div><div class="cm_box"><div class="cm_dialog"></div> <div class="pop_cm cm_add_link"><input type="text" placeholder="链接内容" id="af_cm_link_txt"><input type="text" placeholder="链接地址" id="af_cm_link_url"><input type="text" placeholder="链接提示" id="af_cm_link_tit"><div class="text-right"><span class="btn btn-default btn-sm" id="add_link_btn">插入链接</span> </div> </div><div class="pop_cm cm_add_img"><div class="nav-tabs"><a class="img_tab active" href="http://blog.csdn.net/u011998835/article/details/78389740#tab_upload">本地上传</a><a class="img_tab" href="http://blog.csdn.net/u011998835/article/details/78389740#tab_weburl">网络图片</a></div><div class="tab_panel active" id="tab_upload"><div class="set_img"></div></div><div class="tab_panel" id="tab_weburl"><input type="text" placeholder="图片地址" id="af_cm_img_url"><input type="text" placeholder="图片说明" id="af_cm_img_alt"><div class="text-right"><span class="btn btn-default btn-sm" id="add_img_btn">插入图片</span> </div></div> </div></div> <textarea id="editor_all" rows="8" style="display: none;"></textarea><div class="editor-toolbar"><i class="separator">|</i><a class="icon-headline" title="标题一（Ctrl+Alt+1）"></a><a class="icon-heading" title="标题二（Ctrl+Alt+2）"></a><a class="icon-bold" title="粗体（Ctrl+B）"></a><a class="icon-italic" title="斜体（Ctrl+I）"></a><i class="separator">|</i><a class="icon-quote-left" title="引用（Ctrl+’）"></a><a class="icon-code" title="插入代码片（Ctrl+,）"></a><a class="icon-list-ul" title="无序列表（Ctrl+L）"></a><a class="icon-list-ol" title="有序列表（Ctrl+Alt+L）"></a><i class="separator">|</i><a class="icon-link" title="添加链接（Ctrl+K）"></a><a class="icon-picture" title="添加图片（Ctrl+Alt+I）"></a><i class="separator">|</i><a class="icon-reply" title="撤退（Ctrl+Z）"></a><a class="icon-share-alt" title="前进（Ctrl+Shift+Z）"></a><i class="separator">|</i><a class="icon-info" href="http://ask.csdn.net/pages/markdown" target="_blank" title="markdown语法参考"></a><a class="icon-preview" title="预览"></a><i class="separator">|</i></div><div class="CodeMirror cm-s-paper CodeMirror-focused"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none; font-size: 4px;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="min-width: 33px;"><div style="position: relative;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>&nbsp;<span style="display: inline-block; width: 1px; margin-right: -1px;">&nbsp;</span></pre></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code"></div><div class="CodeMirror-cursor">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px;"></div><div class="CodeMirror-gutters" style="display: none;"></div></div></div><div class="editor-statusbar"><span class="lines">0</span><span class="words">0</span><span class="cursor">0:0</span></div><div class="div_tags clearfix"><div id="divSearchTags" class="tags_con"><input type="text"></div><input type="hidden" name="txtSearchTags"></div><div id="ask2_tagRecomm_div" class="drt_tagRecomm tracking-ad" data-mod="popu_73"><span class="drt_tit">推荐标签：</span></div></div><div class="success"><div class="left_area"><input id="chk_cb" type="checkbox"><span class="wyxs">我要悬赏</span><input id="cb_num" class="cb_num" readonly="true"><span class="phib_rii"><span> 币</span></span></div><a href="http://blog.csdn.net/u011998835/article/details/78389740#" nodetype="cancel" class="cancel">取消</a><a href="http://blog.csdn.net/u011998835/article/details/78389740#" nodetype="ok" class="ok">发布</a></div></div><div id="common_ask_div_sc" class="searchContainer"><div class="sTitle">可能存在类似的问题：</div><div class="sFooter"><a class="sFirstNewAsk">我想提一个新问题</a></div></div><div style="position:fixed; top:0; left:0; overflow:hidden;"><input style="position:absolute; left:-300px;" type="text" value="" id="focus_retriever" readonly="true"></div></body></html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://www.jianshu.com/p/9082a533fa3c -->
+<html><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- Start of Baidu Transcode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/p/9082a533fa3c">
+  <!-- End of Baidu Transcode -->
+
+    <meta name="description" content="学习一个新技术，先别管他的原理啊，流程啊，怎么组织代码啊什么的。直接从官网或者博客抄一个小demo，自己亲自跑一遍，然后再去看那一堆让人头皮发麻的讲解，就能相对容易的看懂了。 初学者的态度应该是：不要问我为什么，反正我就是可以这样运行！ 1. 创建一个spring boot项目可以使用哪些工具 1.1 使用start.spring.io 这是一个网站，可以在这个网站选择你需要的组件，然后会自...">
+
+  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8">
+  <meta property="wb:webmaster" content="294ec9de89e7fadb">
+  <meta property="qc:admins" content="104102651453316562112116375">
+  <meta property="qc:admins" content="11635613706305617">
+  <meta property="qc:admins" content="1163561616621163056375">
+  <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4">
+  <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI">
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/p/9082a533fa3c">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-title" content="简书">
+
+    <!--  Meta for Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/12068187">
+  <!-- End -->
+
+  <!--  Meta for Twitter Card -->
+  <meta content="summary" property="twitter:card">
+  <meta content="@jianshucom" property="twitter:site">
+  <meta content="【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）" property="twitter:title">
+  <meta content="学习一个新技术，先别管他的原理啊，流程啊，怎么组织代码啊什么的。直接从官网或者博客抄一个小demo，自己亲自跑一遍，然后再去看那一堆让人头皮发麻的讲解，就能相对容易的看懂了。 初学者的态度应该是：不要问我为什么，反正我就是可以这样运行！ 1. 创建一个spring boot项目可以使用哪些工具 1.1 使用start.spring.io 这是一个网站，可以在这个网站选择你需要的组件，然后会自动生成一个项目文件，你可以将它下载到本地，然后使用你常用的编译器打开就好。（它是下面三种方法的基础） 1.2 使用Spring Tool Suite(STS) STS是eclipse的一个插件，可以方..." property="twitter:description">
+  <meta content="https://www.jianshu.com/p/9082a533fa3c" property="twitter:url">
+  <!-- End -->
+
+  <!--  Meta for OpenGraph -->
+  <meta property="fb:app_id" content="865829053512461">
+  <meta property="og:site_name" content="简书">
+  <meta property="og:title" content="【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jianshu.com/p/9082a533fa3c">
+  <meta property="og:description" content="学习一个新技术，先别管他的原理啊，流程啊，怎么组织代码啊什么的。直接从官网或者博客抄一个小demo，自己亲自跑一遍，然后再去看那一堆让人头皮发麻的讲解，就能相对容易的看懂了。 初学者的态度应该是...">
+  <!-- End -->
+
+  <!--  Meta for Facebook Applinks -->
+  <meta property="al:ios:url" content="jianshu://notes/12068187">
+  <meta property="al:ios:app_store_id" content="888237539">
+  <meta property="al:ios:app_name" content="简书">
+
+  <meta property="al:android:url" content="jianshu://notes/12068187">
+  <meta property="al:android:package" content="com.jianshu.haruki">
+  <meta property="al:android:app_name" content="简书">
+  <!-- End -->
+
+
+    <title>【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式） - 简书</title>
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="euk5Mlc9fysd+FN6wrBvPaoAgHFjyj4ZxnPsqlpEnpY7a8J77ezXewp7BnNtwsHLgBF6lfOLQ8Ru4hWhn/OOBg==">
+
+  <link rel="stylesheet" media="all" href="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/web-9a426ac97f34593e6662.css">
+  
+  <link rel="stylesheet" media="all" href="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/entry-a5d96d4884b6cddc11f7.css">
+
+  <link href="https://cdn2.jianshu.io/assets/favicons/favicon-03411b154a430b85d807b4366489c21122fb983a38f3d7ca926f882e6367b13e.ico" rel="icon">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/57-a6f1f1ee62ace44f6dc2f6a08575abd3c3b163288881c78dd8d75247682a4b27.png" sizes="57x57">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/72-fb9834bcfce738fd7b9c5e31363e79443e09a81a8e931170b58bc815387c1562.png" sizes="72x72">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/76-49d88e539ff2489475d603994988d871219141ecaa0b1a7a9a1914f4fe3182d6.png" sizes="76x76">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/114-24252fe693524ed3a9d0905e49bff3cbd0228f25a320aa09053c2ebb4955de97.png" sizes="114x114">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/120-1bb7371f5e87f93ce780a5f1a05ff1b176828ee0d1d130e768575918a2e05834.png" sizes="120x120">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/152-bf209460fc1c17bfd3e2b84c8e758bc11ca3e570fd411c3bbd84149b97453b99.png" sizes="152x152">
+
+  <!-- Start of 访问统计 -->
+    <script src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/push.js"></script><script src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/hm.js"></script><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <!-- End of 访问统计 -->
+<style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.main {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 30px 0;
+  width: 620px;
+}
+.main .title {
+    padding-left: 8px;
+    border-left: 3px solid #EA6F5A;
+    line-height: 1;
+    font-size: 15px;
+}
+.main .collection-settings {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 13px;
+    color: #A0A0A0;
+}
+.main .collection-settings span {
+      padding-left: 4px;
+}
+.main .include-collection {
+    width: 100%;
+    padding-top: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.main .include-collection .item {
+      display: inline-block;
+      margin: 0 12px 12px 0;
+      min-height: 32px;
+      background-color: white;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+      vertical-align: top;
+      overflow: hidden;
+}
+.main .include-collection .item img {
+        width: 32px;
+        height: 32px;
+}
+.main .include-collection .item .name {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 14px;
+}
+.main .include-collection .add-collection-wrap {
+      margin: 0 12px 12px 0;
+}
+.main .include-collection .add-collection {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+}
+.main .include-collection .add-collection i {
+        margin-right: 4px;
+        color: #969696;
+}
+.main .recommend-note a {
+    position: relative;
+    margin: 20px 2px 0 0;
+    width: 200px;
+    height: 160px;
+    display: inline-block;
+}
+.main .recommend-note a:after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 160px;
+      border-radius: 0 0 4px 4px;
+      -webkit-box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+              box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+      top: 0;
+      left: 0;
+      z-index: 1;
+}
+.main .recommend-note .name {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    right: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    z-index: 2;
+}
+.main .recommend-note .author {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+}
+.main .recommend-note .avatar {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.main .recommend-note .avatar img {
+      border-radius: 50%;
+}
+.main .recommend-note .author-name {
+    font-size: 12px;
+    color: #ffffff;
+    display: inline-block;
+    vertical-align: -1px;
+}
+.main .show-more {
+    margin: 0 12px 12px 0;
+    font-size: 14px;
+    color: #A0A0A0;
+}
+</style></head>
+
+  <body lang="zh-CN" class="reader-black-font">
+    <!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo" href="https://www.jianshu.com/"><img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo"></a>
+
+    <!-- 右上角 -->
+      <!-- 未登录显示登录/注册/写文章 -->
+      <a class="btn write-btn" target="_blank" href="https://www.jianshu.com/writer#/">
+        <i class="iconfont ic-write"></i>写文章
+</a>      <a class="btn sign-up" href="https://www.jianshu.com/sign_up">注册</a>
+      <a class="btn log-in" href="https://www.jianshu.com/sign_in">登录</a>
+
+    <!-- 如果用户登录，显示下拉菜单 -->
+
+    <div class="style-mode"><a class="style-mode-btn"><i class="iconfont ic-navigation-mode"></i></a> <div class="popover-modal" style="left: 0px; display: none;"><div class="meta"><i class="iconfont ic-navigation-night"></i><span>夜间模式</span></div> <div class="switch day-night-group"><a class="switch-btn">开</a> <a class="switch-btn active">关</a></div> <hr> <div class="switch font-family-group"><a class="switch-btn font-song">宋体</a> <a class="switch-btn font-hei active">黑体</a></div> <div class="switch"><a class="switch-btn active">简</a> <a class="switch-btn">繁</a></div></div></div>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab ">
+              <a href="https://www.jianshu.com/">
+                <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a id="web-nav-app-download-btn" class="app-download-btn" href="https://www.jianshu.com/apps?utm_medium=desktop&amp;utm_source=navbar-apps"><span class="menu-text">下载App</span><i class="iconfont ic-navigation-download menu-icon"></i></a>
+            </li>
+          <li class="search">
+            <form target="_blank" action="https://www.jianshu.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+              <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
+              <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+</form>          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+<div class="note">
+  <a target="_blank" href="https://www.jianshu.com/apps/download?utm_source=sbc" id="web-note-ad-fixed" style="left: 1091.5px; display: inline;"><span class="close">×</span></a>
+  <div class="post">
+    <div class="article">
+        <h1 class="title">【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）</h1>
+
+        <!-- 作者区域 -->
+        <div class="author">
+          <a class="avatar" href="https://www.jianshu.com/u/8dc5811b228f">
+            <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/85a25f4c98d1" alt="96">
+</a>          <div class="info">
+            <span class="name"><a href="https://www.jianshu.com/u/8dc5811b228f">cleverfan</a></span>
+            <!-- 关注用户按钮 -->
+            <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+            <!-- 文章数据信息 -->
+            <div class="meta">
+              <!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
+                <span class="publish-time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="最后编辑于 2017.12.07 02:41">2017.05.05 16:07*</span>
+              <span class="wordage">字数 1677</span>
+            <span class="views-count">阅读 3604</span><span class="comments-count">评论 0</span><span class="likes-count">喜欢 18</span></div>
+          </div>
+          <!-- 如果是当前作者，加入编辑按钮 -->
+        </div>
+        <!-- -->
+
+        <!-- 文章内容 -->
+        <div data-note-content="" class="show-content" deep="3">
+          <blockquote>
+<p>学习一个新技术，先别管他的原理啊，流程啊，怎么组织代码啊什么的。直接从官网或者博客抄一个小demo，自己亲自跑一遍，然后再去看那一堆让人头皮发麻的讲解，就能相对容易的看懂了。</p>
+</blockquote>
+<blockquote>
+<p>初学者的态度应该是：不要问我为什么，反正我就是可以这样运行！</p>
+</blockquote>
+<h2><strong>1. 创建一个spring boot项目可以使用哪些工具</strong></h2>
+<h3>1.1 使用start.spring.io</h3>
+<p>这是一个网站，可以在这个网站选择你需要的组件，然后会自动生成一个项目文件，你可以将它下载到本地，然后使用你常用的编译器打开就好。（它是下面三种方法的基础）</p>
+<h3>1.2 使用Spring Tool Suite(STS)</h3>
+<p>STS是eclipse的一个插件，可以方便eclipse用户进行spring boot的开发。</p>
+<h3>1.3 使用Intellij IDEA</h3>
+<p>IDEA 集成了spring boot（也是一个插件），idea对新技术的支持比较快，而且是最好用的java编译器（我认为的）。推荐大家使用它进行开发，教程可以参考我写的文章。</p>
+<h3>1.4 使用Spring boot CLI</h3>
+<p>Spring boot的命令行工具，可以很方便的操作spring项目。</p>
+<blockquote>
+<p>接下来会逐一演示这四种方法。</p>
+</blockquote>
+<h2><strong>2. 实战：创建第一个spring boot项目</strong></h2>
+<h3>2.1 使用start.spring.io</h3>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 379px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 54.22%;"></div>
+<div class="image-view" data-width="2560" data-height="1388"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-718cf886c1dc22d3.png" data-original-width="2560" data-original-height="1388" data-original-format="image/png" data-original-filesize="301176" class="" src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/4047674-718cf886c1dc22d3.png" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">项目配置</div>
+</div>
+<p>打开这个网站，设置你的项目，选择需要的dependencies。然后点击生成项目。就可以把项目下载到本地了。</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 454px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 64.88000000000001%;"></div>
+<div class="image-view" data-width="1384" data-height="898"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-ba48f16a3194c940.png" data-original-width="1384" data-original-height="898" data-original-format="image/png" data-original-filesize="118767" class="" src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/4047674-ba48f16a3194c940.png" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">项目结构</div>
+</div>
+<p>下载下来的就是一个maven项目，你可以使用你熟悉的ide打开它，然后进行代码的编写。</p>
+<h3>2.2 使用Spring Tool Suite(STS)</h3>
+<p>首先，你需要安装这个插件。</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 928px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 132.66%;"></div>
+<div class="image-view" data-width="1090" data-height="1446"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-f6044e2e19f7a2d2.png" data-original-width="1090" data-original-height="1446" data-original-format="image/png" data-original-filesize="305305" class="" src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/4047674-f6044e2e19f7a2d2.png" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">安装STS</div>
+</div>
+<p>安装好后，选择创建一个spring stater项目：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 666px;">
+<div class="image-container-fill" style="padding-bottom: 95.24000000000001%;"></div>
+<div class="image-view" data-width="1050" data-height="1000"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-e0a094e815ac311e.png" data-original-width="1050" data-original-height="1000" data-original-format="image/png" data-original-filesize="143158" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">创建项目</div>
+</div>
+<p>项目设置：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 933px;">
+<div class="image-container-fill" style="padding-bottom: 133.32999999999998%;"></div>
+<div class="image-view" data-width="1098" data-height="1464"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-c061f0e7094621b1.png" data-original-width="1098" data-original-height="1464" data-original-format="image/png" data-original-filesize="176190" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">项目设置</div>
+</div>
+<blockquote>
+<p>看到了么，start.spring.io  O.O</p>
+</blockquote>
+<p>版本和依赖选择：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 933px;">
+<div class="image-container-fill" style="padding-bottom: 133.32999999999998%;"></div>
+<div class="image-view" data-width="1098" data-height="1464"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-89ba296f994ba220.png" data-original-width="1098" data-original-height="1464" data-original-format="image/png" data-original-filesize="181512" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">版本和依赖选择</div>
+</div>
+<p>完成</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 400px;">
+<div class="image-container-fill" style="padding-bottom: 57.19%;"></div>
+<div class="image-view" data-width="2560" data-height="1464"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-3e73c109d70a37a6.png" data-original-width="2560" data-original-height="1464" data-original-format="image/png" data-original-filesize="438425" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">完成</div>
+</div>
+<h3>2.3 使用Intellij IDEA</h3>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 473px;">
+<div class="image-container-fill" style="padding-bottom: 67.67%;"></div>
+<div class="image-view" data-width="2060" data-height="1394"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-a95330951e55086a.png" data-original-width="2060" data-original-height="1394" data-original-format="image/png" data-original-filesize="191653" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">使用idea</div>
+</div>
+<p>选择spring initializr，然后选择jdk版本，点next。可以发现，idea的这个插件其实用的也是start.spring.io。</p>
+<p>接下来配置你的项目：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 473px;">
+<div class="image-container-fill" style="padding-bottom: 67.67%;"></div>
+<div class="image-view" data-width="2060" data-height="1394"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-277f81fca94cef6a.png" data-original-width="2060" data-original-height="1394" data-original-format="image/png" data-original-filesize="138248" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">配置你的项目</div>
+</div>
+<p>选择你需要的依赖和版本：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 473px;">
+<div class="image-container-fill" style="padding-bottom: 67.67%;"></div>
+<div class="image-view" data-width="2060" data-height="1394"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-bc178a78042cc323.png" data-original-width="2060" data-original-height="1394" data-original-format="image/png" data-original-filesize="250699" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">选择你需要的依赖和版本</div>
+</div>
+<p>设置项目名和位置：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 473px;">
+<div class="image-container-fill" style="padding-bottom: 67.67%;"></div>
+<div class="image-view" data-width="2060" data-height="1394"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-af170872e3d70e0e.png" data-original-width="2060" data-original-height="1394" data-original-format="image/png" data-original-filesize="93069" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">设置项目名和位置</div>
+</div>
+<p>完成：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 400px;">
+<div class="image-container-fill" style="padding-bottom: 57.19%;"></div>
+<div class="image-view" data-width="2560" data-height="1464"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-5eca7fee9dd459be.png" data-original-width="2560" data-original-height="1464" data-original-format="image/png" data-original-filesize="295524" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">完成</div>
+</div>
+<h3>2.4 使用Spring boot CLI</h3>
+<p>2.4.1 下载安装：(当前最新版1.5.3)</p>
+<ul>
+<li>方法1，手动安装，下载下面的压缩包，提供两种压缩格式。</li>
+</ul>
+<blockquote>
+<p><a href="https://link.jianshu.com/?t=http://repo.spring.io/release/org/springframework/boot/spring-boot-cli/1.5.3.RELEASE/spring-boot-cli-1.5.3.RELEASE-bin.zip" target="_blank" rel="nofollow">spring-boot-cli-1.5.3.RELEASE-bin.zip</a><br data-filtered="filtered">
+<a href="https://link.jianshu.com/?t=http://repo.spring.io/release/org/springframework/boot/spring-boot-cli/1.5.3.RELEASE/spring-boot-cli-1.5.3.RELEASE-bin.tar.gz" target="_blank" rel="nofollow">spring-boot-cli-1.5.3.RELEASE-bin.tar.gz</a></p>
+</blockquote>
+<p>下载完成后，遵循解压后的存档里的<a href="https://link.jianshu.com/?t=http://raw.github.com/spring-projects/spring-boot/master/spring-boot-cli/src/main/content/INSTALL.txt" target="_blank" rel="nofollow">INSTALL.txt</a>操作指南进行安装。一般而言，在.zip文件的bin/目录下存在一个spring脚本（Windows下是spring.bat），或者使用java -jar来运行一个.jar文件（该脚本会帮你确定classpath被正确设置）。</p>
+<ul>
+<li>方法2，使用SDKMAN安装<br data-filtered="filtered">
+SDKMAN! (The Software Development Kit Manager) 可以用来管理多种有许多版本的sdk，包括groovy和spring boot cli。可以通过 <a href="https://link.jianshu.com/?t=http://sdkman.io/" target="_blank" rel="nofollow">sdkman.io</a>来获得sdkman，然后通过它来安装cli。：</li>
+</ul>
+<pre class="hljs ruby"><code class="ruby">$ sdk install springboot
+$ spring --version
+Spring Boot v1.<span class="hljs-number">5.3</span>.RELEASE
+</code></pre>
+<p>你也可以通过配置，来获取其他版本的CLI:</p>
+<pre class="hljs ruby"><code class="ruby">$ sdk install springboot dev /path/to/spring-boot/spring-boot-cli/target/spring-boot-cli-<span class="hljs-number">1.5</span>.<span class="hljs-number">3</span>.RELEASE-bin/spring-<span class="hljs-number">1.5</span>.<span class="hljs-number">3</span>.RELEASE/
+$ sdk default springboot dev
+$ spring --version
+Spring CLI v1.<span class="hljs-number">5.3</span>.RELEASE
+</code></pre>
+<ul>
+<li>方法3，如果你是mac用户，可以使用Homebrew：</li>
+</ul>
+<pre class="hljs ruby"><code class="ruby">$ brew tap pivotal/tap
+$ brew install springboot
+/<span class="hljs-regexp">/ 会安装到/usr</span><span class="hljs-regexp">/local/bin</span>
+</code></pre>
+<ul>
+<li>方法4，mac用户也可以使用<a href="https://link.jianshu.com/?t=https://www.macports.org/" target="_blank" rel="nofollow">MacPorts</a>安装：</li>
+</ul>
+<pre class="hljs ruby"><code class="ruby">$ sudo port install spring-boot-cli
+</code></pre>
+<p><strong>命令行实现：</strong><br data-filtered="filtered">
+Spring Boot CLI启动脚本为<a href="https://link.jianshu.com/?t=http://en.wikipedia.org/wiki/Bash_%28Unix_shell%29" target="_blank" rel="nofollow">BASH</a>和<a href="https://link.jianshu.com/?t=http://en.wikipedia.org/wiki/Zsh" target="_blank" rel="nofollow">zsh</a> shells提供完整的命令行实现。你可以在任何shell中source脚本（名称也是spring），或将它放到你个人或系统范围的bash实现初始化中。在一个Debian系统里，系统范围的脚本位于/shell-completion/bash<br data-filtered="filtered">
+下，当一个新的shell启动时该目录下的所有脚本都被执行。想要手动运行该脚本，例如，你已经使用GVM进行安装了：</p>
+<pre class="hljs ruby"><code class="ruby">$ . ~<span class="hljs-regexp">/.gvm/springboot</span><span class="hljs-regexp">/current/shell</span>-completion/bash/spring
+$ spring 
+  grab  help  jar  run  test  version
+</code></pre>
+<blockquote>
+<p>如果你使用Homebrew或MacPorts安装Spring Boot CLI，命令行实现脚本会自动注册到你的shell。</p>
+</blockquote>
+<p>恩，上面撤了一堆，都是安装CLI的方式，翻译自官网，选一种方式安装就好了。安装成功后：</p>
+<p>2.4.2 创建一个项目：</p>
+<p>输入命令：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 459px;">
+<div class="image-container-fill" style="padding-bottom: 65.60000000000001%;"></div>
+<div class="image-view" data-width="1378" data-height="904"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-e5d70414ca0ce4fb.png" data-original-width="1378" data-original-height="904" data-original-format="image/png" data-original-filesize="124767" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">使用CLI</div>
+</div>
+<pre class="hljs ruby"><code class="ruby">$ mkdir demo
+$ cd demo
+$ spring init -d=web -g=com.example -a=demo --package-name=com.example --name=demo -x
+</code></pre>
+<blockquote>
+<p>-d（dependencies 依赖包）<br data-filtered="filtered">
+-g（Group Id）<br data-filtered="filtered">
+-a（Artifact Id）<br data-filtered="filtered">
+--package-name（Package name）<br data-filtered="filtered">
+--name（Project name）<br data-filtered="filtered">
+-x（Extract compatible archives）</p>
+</blockquote>
+<blockquote>
+<p>更多详情可以输入<code>spring help init</code>查看。</p>
+</blockquote>
+<p>查看结果：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 396px;">
+<div class="image-container-fill" style="padding-bottom: 56.620000000000005%;"></div>
+<div class="image-view" data-width="1540" data-height="872"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-b62e879b2247987f.png" data-original-width="1540" data-original-height="872" data-original-format="image/png" data-original-filesize="229316" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">结果</div>
+</div>
+<p>和之前的创建方式得到的是一样的。</p>
+<blockquote>
+<p>无论哪种创建方式都是要访问<a href="https://link.jianshu.com/?t=https://start.spring.io" target="_blank" rel="nofollow">https://start.spring.io</a>来获取模板工程代码。所以甚至可以使用CURL或HTTPie这些第三方工具来创建。当然。。创建个工程而已，没必要这么麻烦，直接idea不就好了？</p>
+</blockquote>
+<h2><strong>3. 编写代码及代码核心部分的分析</strong></h2>
+<p>创建好工程了，接下来，我们简单的写一个小demo。</p>
+<h3>3.1 简单的小demo。</h3>
+<p>打开DemoApplication.java 修改代码为：</p>
+<pre class="hljs java"><code class="java"><span class="hljs-meta">@SpringBootApplication</span>(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class}) <span class="hljs-comment">//移除自动注入数据源</span>
+<span class="hljs-meta">@RestController</span>  <span class="hljs-comment">// 添加了一个注解</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DemoApplication</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        SpringApplication.run(DemoApplication.class, args);
+    }
+    <span class="hljs-comment">//添加了一个方法</span>
+    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hello"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"no hello world"</span>;
+    }
+}
+</code></pre>
+<p>直接运行这个main方法：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 281px;">
+<div class="image-container-fill" style="padding-bottom: 40.23%;"></div>
+<div class="image-view" data-width="2466" data-height="992"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-8e61edeafac878b7.png" data-original-width="2466" data-original-height="992" data-original-format="image/png" data-original-filesize="583725" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">运行结果</div>
+</div>
+<p>浏览器访问<a href="https://link.jianshu.com/?t=http://localhost:8080/hello" target="_blank" rel="nofollow">http://localhost:8080/hello</a>：</p>
+<blockquote>
+</blockquote>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 428px;">
+<div class="image-container-fill" style="padding-bottom: 39.48%;"></div>
+<div class="image-view" data-width="1084" data-height="428"><img data-original-src="//upload-images.jianshu.io/upload_images/4047674-19c8b71d710587a5.png" data-original-width="1084" data-original-height="428" data-original-format="image/png" data-original-filesize="36302" class="image-loading" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">浏览器访问</div>
+</div>
+<p>大功告成。第一个spring boot项目完成。</p>
+<h3>3.2 代码简单讲解</h3>
+<pre class="hljs java"><code class="java"><span class="hljs-meta">@SpringBootApplication</span>(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
+ <span class="hljs-comment">//移除自动注入数据源</span>
+</code></pre>
+<p>现在新版本的springboot会自动注入数据源，所以需要在application配置文件里写你的数据库信息，但是我们暂时用不到它，所以先把这个功能移除，不然会报错。</p>
+<pre class="hljs java"><code class="java"><span class="hljs-meta">@RestController</span>
+</code></pre>
+<p>这个一个组合注解，相当于<code>@ResponseBody</code>和<code>@Controller</code>，controller大家都知道，ResponseBody注解将内容或对象作为 HTTP 响应正文返回。</p>
+<pre class="hljs cpp"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+    SpringApplication.run(DemoApplication.class, args);
+}
+</code></pre>
+<p>这个就是spring boot的入口。关于这个方法，我们以后会详细讲解。</p>
+<pre class="hljs java"><code class="java">    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hello"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"no hello world"</span>;
+    }
+</code></pre>
+<p>写过springmvc的应该都懂吧，我就不多说了。由于只是演示，所以我就把它放在入口类中了，规范点应该自己写controller类的。</p>
+<h2><strong>4. 小结</strong></h2>
+<p>创建一个spring boot的项目是非常方便的，由于start.spring.io的存在，你可以使用任何你喜欢的ide来快速开发spring boot项目。</p>
+<p>从创建到运行，你会发现，我们没有创建任何一个xml，也没有多余的配置。创建好项目以后，写一个controller就可以运行了，非常的方便。</p>
+<p>后面和数据库对接，做安全验证的时候你会发现，原来一切都可以这么简单。</p>
+<hr>
+<p>本篇文章到这里就结束了。如果文章内容有错误，请及时与我联系。</p>
+
+        </div>
+        <!--  -->
+
+        <div class="show-foot">
+          <a class="notebook" href="https://www.jianshu.com/nb/12140520">
+            <i class="iconfont ic-search-notebook"></i>
+            <span>spring boot</span>
+</a>          <div class="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+            © 著作权归作者所有
+          </div>
+          <div class="modal-wrap" data-report-note="">
+            <a id="report-modal">举报文章</a>
+          </div>
+        </div>
+    </div>
+
+    <!-- 文章底部作者信息 -->
+      <div class="follow-detail">
+        <div class="info">
+          <a class="avatar" href="https://www.jianshu.com/u/8dc5811b228f">
+            <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/85a25f4c98d1" alt="96">
+</a>          <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+          <a class="title" href="https://www.jianshu.com/u/8dc5811b228f">cleverfan</a>
+          
+            <i class="iconfont ic-man"></i>
+        <p>写了 63843 字，被 718 人关注，获得了 1521 个喜欢</p></div>
+          <div class="signature">一个不断前进的大学生
+
+我已委托“维权骑士”（rightknights.com）为我的文章进行维权行动。
+
+如需转载请访问http://rightknights.com/pub/pub_author?greatAuthor=CCDED&amp;type=0获得合法授权</div>
+      </div>
+
+      <div class="support-author"></div>
+
+    <div class="meta-bottom">
+      <div class="like"><div class="btn like-group"><div class="btn-like"><a href="https://www.jianshu.com/sign_in?utm_source=desktop&amp;utm_medium=not-signed-in-like-button"><i class="iconfont ic-like"></i>喜欢</a></div> <div class="modal-wrap"><a>18</a></div></div> <!----></div>
+      <div class="share-group">
+        <a class="share-circle" data-action="weixin-share" data-toggle="tooltip" data-original-title="分享到微信">
+          <i class="iconfont ic-wechat"></i>
+        </a>
+        <a class="share-circle" data-action="weibo-share" data-toggle="tooltip" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 cleverfan 的文章《【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));" data-original-title="分享到微博">
+          <i class="iconfont ic-weibo"></i>
+        </a>
+          <a class="share-circle" data-toggle="tooltip" href="http://cwb.assets.jianshu.io/notes/images/12068187/weibo/image_fe92d7a98cd3.jpg" target="_blank" data-original-title="下载长微博图片">
+            <i class="iconfont ic-picture"></i>
+          </a>
+        <a class="share-circle more-share" tabindex="0" data-toggle="popover" data-placement="top" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="
+          &lt;ul class=&quot;share-list&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 cleverfan 的文章《【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-zone&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 cleverfan 的文章《【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-twitter&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-facebook&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-google&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-douban&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        " data-original-title="" title="">更多分享</a>
+      </div>
+    </div>
+      <a id="web-note-ad-1" target="_blank" href="https://www.jianshu.com/apps/download?utm_source=nbc"><img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/web-note-ad-1-10f08e404d3887d2d45a4bc8f1831403.png" alt="Web note ad 1"></a>
+    <div id="vue_comment"></div>
+  </div>
+
+  <div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部"><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <!----> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="分享文章"><a tabindex="0" role="button" data-toggle="popover" data-placement="left" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="&lt;ul class=&#39;share-list&#39;&gt;
+                &lt;li&gt;&lt;a class=&quot;weixin-share&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-weixin&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到微信&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 cleverfan 的文章《【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-weibo&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到微博&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 cleverfan 的文章《【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-zone&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 cleverfan 的文章《【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-twitter&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-facebook&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-google&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/9082a533fa3c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;【springboot 入门篇】第1篇  第一个spring-boot程序（多种搭建方式）&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-douban&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;" data-original-title="" title="" class="function-button"><i class="iconfont ic-share"></i></a> <!----></li> <!----></ul></div>
+</div>
+<div class="note-bottom">
+  <div><div class="main"><div class="title">被以下专题收入，发现更多相似内容</div> <!----> <div class="include-collection"><!----> <a href="https://www.jianshu.com/c/37397202f354?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/下载.jpeg"><div class="name">程序视界</div></a><a href="https://www.jianshu.com/c/V2CqjW?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/6249340_194140034135_2.jpg"><div class="name">@IT·互联网</div></a><a href="https://www.jianshu.com/c/61314ad84456?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/th.jpeg"><div class="name">Spring-...</div></a><a href="https://www.jianshu.com/c/04cb7410c597?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/android.graphics.Bitmap_2e3e36e9.jpeg"><div class="name">Java学习笔记</div></a><a href="https://www.jianshu.com/c/NEt52a?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/computer_guy.jpg"><div class="name">程序员</div></a> <!----></div></div> <!----> <!----></div>
+  <div data-vcomp="recommended-notes" data-note-id="12068187"></div>
+  <!-- 相关文章 -->
+  <div class="seo-recommended-notes">
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/67a0e41dfe05?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">Spring boot参考指南</a>
+          <p class="description">Spring Boot 参考指南 介绍 转载自:https://www.gitbook.com/book/qbgbook/spring-boot-reference-guide-zh/details带目录浏览地址:http://www.maoyupeng.com/sprin...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/d3ea915e1e0f?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/9b5b9b6de8b7.jpg" alt="48">
+            </div>
+            <span class="name">毛宇鹏</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/46fd0faecac1?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/7328262-54f7992145380c10.png" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/46fd0faecac1?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">Spring Cloud</a>
+          <p class="description">Spring Cloud为开发人员提供了快速构建分布式系统中一些常见模式的工具（例如配置管理，服务发现，断路器，智能路由，微代理，控制总线）。分布式系统的协调导致了样板模式, 使用Spring Cloud开发人员可以快速地支持实现这些模式的服务和应用程序。他们将在任何分布式...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/d90908cb0d85?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/2-9636b13945b9ccf345bc98d0d81074eb.jpg" alt="48">
+            </div>
+            <span class="name">卡卡罗2017</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/989fa1d43849?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/1233356-a5d1edf135c517c9.png" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/989fa1d43849?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">《Spring Boot开发：从0到1》大纲结构</a>
+          <p class="description">《Spring Boot开发：从0到1》 大纲结构v2.0 第一部分Spring Boot基础 第1章 Spring Boot史前简述1.1 J2EE（Java 2 Platform Enterprise Edition）简介1.2 Java企业级开发框架概述1.3 Spr...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/c55c7a9c8de6?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/cf71910a-2af3-478f-9fab-bc1375a6b589.png" alt="48">
+            </div>
+            <span class="name">东海陈光剑</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/05abc1ada483?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/1233356-928607fa053a7199.png" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/05abc1ada483?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">《Spring Boot 实战：从0到1》第4章 Spring Boot自动配置原理</a>
+          <p class="description">第3章 Spring Boot自动配置原理 3.1 SpringBoot的核心组件模块 首先，我们来简单统计一下SpringBoot核心工程的源码java文件数量： 我们cd到spring-boot-autoconfigure工程根目录下。执行 我们可以看到有783个jav...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/c55c7a9c8de6?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/cf71910a-2af3-478f-9fab-bc1375a6b589.png" alt="48">
+            </div>
+            <span class="name">东海陈光剑</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/9521280df0d2?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">Spring Boot (1.3.6.RELEASE) 入门</a>
+          <p class="description">本文翻译自Spring Boot官方文档的Getting Started部分，原文可点击此处查看。 如果你刚开始学习使用Spring Boot，或者Spring框架，那么这篇文章正是为你准备的！通过这篇文章，我们将介绍关于Spring Boot的一些基本知识。你将从接下来的...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/a24dd7511498?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/682db4e817df" alt="48">
+            </div>
+            <span class="name">黄炜杰</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/27f58223e1e1?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">GPUImage渲染流程</a>
+          <p class="description">GPUImage 的代码结构是链式处理结构. 所以查看的时候也是从最开始选图片一步一步向下走的. 步骤: 1.从相册选择一张图片  把几个参数传给修改图像效果的控制器.2.使用刚才传过来的图片 创建GPUImagePicture对象.3.创建filter对象 GPUImag...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/1407d6ce208e?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/c673ba9a-c5cc-4fe7-b9dc-b410e3a310b8.jpg" alt="48">
+            </div>
+            <span class="name">huicuihui</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/bc758a8f86a0?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/1636843-317a4e085b5ff9eb.jpeg" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/bc758a8f86a0?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">远方来的手信 { 夜里的一河星光</a>
+          <p class="description">Article 1. Damasquinado 大马士革镶金挂坠 “在那里，历史密密地一层一层堆积起来。”——林达，《西班牙旅行笔记》 塔霍河环抱着这个城市。 这里是托莱多（Toledo，或被译作托雷多）。 西班牙的特色古城小镇有许多，我常满眼红心，“哇，这是我此行最爱的城...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/192d7896bfa5?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/ec80d8e70aad.jpg" alt="48">
+            </div>
+            <span class="name">大呓</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/9288aabee4a8?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/4647170-aac3ad4fe206f262.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/9288aabee4a8?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">烟花易冷，那是我不懂的爱情       ㈠（长篇连载）</a>
+          <p class="description">  那是一个我这辈子都不会忘记的女孩，是的，这辈子。我觉得我会执着到底，像电视剧《你是我兄弟》里马老二对花蕾蕾那样地痴情，一辈子。    谈谈我和她的往事，哈，我说错了呢，姑且说成是谈谈我喜欢她的那段往事吧     那就从和她相识开始讲起吧！               初...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/dabdaff78b13?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/d2018df2bea6.jpg" alt="48">
+            </div>
+            <span class="name">浮世觅欢</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/f005e0c1b238?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">LDAP-HA部署文档-keepalived</a>
+          <p class="description">1、概述 本文使用MirrorMode双主镜像的同步机制，实现两个节点间的数据同步。两台服务器互相以推的方式实现数据的同步。 2、OpenLDAP同步的条件 （1）OpenLDAP服务器之间需要保持时间同步（2）OpenLDAP软件包版本保持一致（3）OpenLDAP节点之...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/2fdd08256aef?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/0cfb803c-4291-4b4b-bd41-c0e58ff8f222.jpg" alt="48">
+            </div>
+            <span class="name">xiaodf</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/32ebbae5a74b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/2548212-3f6036999a766eb4" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/32ebbae5a74b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">让人眼前一亮的背景墙 给家添点趣味</a>
+          <p class="description">重庆装修公司，二十四城装饰小唐 许多人都有一个环游世界的梦想，对于一个热爱探索的人来说，世界上的每一个角落都值得去看一看。你可以把一幅大大的世界地图贴在墙上，在家里也能探索世界。 越来越多的人喜欢用砖墙来打造家居墙面，或许是向往其中的那一份质朴情怀。当然，你也可以使用砖墙纹...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/851a88634e30?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/4a49ee67-df69-4295-b269-ddbc4e07cfec.jpg" alt="48">
+            </div>
+            <span class="name">梦想家MMM</span>
+</a>        </div>
+  </div>
+</div>
+
+    <script type="application/json" data-name="page-data">{"user_signed_in":false,"locale":"zh-CN","os":"windows","read_mode":"day","read_font":"font2","note_show":{"is_martin_user":false,"is_author":false,"is_following_author":false,"is_liked_note":false,"follow_state":0,"uuid":"c683f1c9-7185-4c3b-886f-48641b269c2d"},"note":{"id":12068187,"slug":"9082a533fa3c","user_id":4047674,"notebook_id":12140520,"commentable":true,"likes_count":18,"views_count":3604,"public_wordage":1677,"comments_count":0,"total_rewards_count":0,"is_author":false,"author":{"nickname":"cleverfan","total_wordage":63843,"followers_count":718,"total_likes_count":1521}}}</script>
+    
+    <script src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/babel-polyfill-e27dec85eeb94683dfc7.js" crossorigin="anonymous"></script>
+    <script src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/web-base-ead5a7737d183703055b.js" crossorigin="anonymous"></script>
+<script src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/web-f1fa9162cfb6b109c519.js" crossorigin="anonymous"></script>
+    
+    <script src="./【springboot 入门篇】第1篇 第一个spring-boot程序（多种搭建方式） - 简书_files/entry-9e28293f23f7fa89210f.js" crossorigin="anonymous"></script>
+    <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+  
+
+<!----><!----></body></html>
